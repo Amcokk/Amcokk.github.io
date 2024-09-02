@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Melodic News – Noticias, clases y podcast.</title>
     <link rel="stylesheet" href="body.css">
-    <link rel="icon" href="logo-icon.png" type="image/png">
+    <link rel="icon" href="imagenes/logo-icon.png" type="image/png">
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         .navbar {
             background-color: #d6a64c; /* Color ocre */
@@ -67,17 +69,42 @@
         .nav-item:hover .dropdown-content {
             display: block;
         }
+
+        /* Estilos para la sección de bienvenida */
+        .welcome-section {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: #fef6e4; /* Fondo claro para la bienvenida */
+            color: #6c4f28; /* Color ocre oscuro para el texto */
+        }
+
+        .welcome-section h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .welcome-section p {
+            font-size: 1.2em;
+            line-height: 1.6;
+        }
+
+        .welcome-section a {
+            text-decoration: none;
+            color: #d6a64c; /* Color ocre para enlaces */
+            font-weight: bold;
+        }
+
+        .welcome-section a:hover {
+            color: #b98a36; /* Color ocre más oscuro en hover */
+        }
     </style>
 </head>
 <body>
-    <div class="logo">
-        <img src="logo-icon.png" width="150px" alt="">
-    </div>
     <div class="titulo">
         <h1>ELODIC NEWS</h1>
     </div>
     <div class="sec-1">
-        <img src="notaa.png" width="170px" alt="notaa">
+        <img src="imagenes/notaa.png" width="170px" alt="notaa">
     </div>
     <div class="piano">
         <div class="piano-header">
@@ -97,18 +124,18 @@
             <div class="key black" onclick="document.getElementById('do#').play();"></div>
             <div class="key white" onclick="document.getElementById('do').play();"></div>
         </div>
-        <audio id="si" src="notas/j.mp3"></audio>
-        <audio id="la#" src="notas/u.mp3"></audio>
-        <audio id="la" src="notas/h.mp3"></audio>
-        <audio id="sol#" src="notas/y.mp3"></audio>
-        <audio id="sol" src="notas/g.mp3"></audio>
-        <audio id="fa#" src="notas/t.mp3"></audio>
-        <audio id="fa" src="notas/f.mp3"></audio>
-        <audio id="mi" src="notas/d.mp3"></audio>
-        <audio id="re#" src="notas/e.mp3"></audio>
-        <audio id="re" src="notas/s.mp3"></audio>
-        <audio id="do#" src="notas/w.mp3"></audio>
-        <audio id="do" src="notas/a.mp3"></audio>
+        <audio id="si" src="notas/j.wav"></audio>
+        <audio id="la#" src="notas/u.wav"></audio>
+        <audio id="la" src="notas/h.wav"></audio>
+        <audio id="sol#" src="notas/y.wav"></audio>
+        <audio id="sol" src="notas/g.wav"></audio>
+        <audio id="fa#" src="notas/t.wav"></audio>
+        <audio id="fa" src="notas/f.wav"></audio>
+        <audio id="mi" src="notas/d.wav"></audio>
+        <audio id="re#" src="notas/e.wav"></audio>
+        <audio id="re" src="notas/s.wav"></audio>
+        <audio id="do#" src="notas/w.wav"></audio>
+        <audio id="do" src="notas/a.wav"></audio>
     </div>
     <nav class="navbar">
         <ul class="nav-menu">
@@ -121,11 +148,23 @@
                     <a href="https://www.instagram.com/Melodicnewss" target="_blank">Instagram</a>
                 </div>
             </li>
-            <li class="nav-item"><a href="#contact">Contacto</a></li>
+            <li class="nav-item">
+                <a>Contacto</a>
+                <div class="dropdown-content">
+                    <a target="_blank">311-448-2596</a>
+                </div>
+            </li>
             <li class="nav-item"><a href="iniciar-sesion.html">Iniciar Sesión</a></li>
             <li class="nav-item"><a href="crear-cuenta.html">Crear Cuenta</a></li>
         </ul>
     </nav>
+    
+    <!-- Sección de bienvenida -->
+    <div class="welcome-section">
+        <h2>Bienvenido a Melodic News</h2>
+        <p>Gracias por visitar nuestro sitio. En Melodic News, te ofrecemos una amplia variedad de noticias, clases musicales y podcasts para que te mantengas informado y entretenido. Explora nuestras secciones para encontrar contenido que te interese y mantente al día con nuestras últimas actualizaciones.</p>
+        <p>Para más información, puedes visitar nuestras <a href="noticias.html">noticias</a>, <a href="clases.html">clases</a>, o escuchar nuestros <a href="podcast.html">podcasts</a>. ¡Esperamos que disfrutes tu experiencia con nosotros!</p>
+    </div>
 </body>
 </html>
 
