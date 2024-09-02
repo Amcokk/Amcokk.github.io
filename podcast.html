@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Melodic News</title>
+    <link rel="stylesheet" href="body.css";>
+    <link rel="icon" href="logo-icon.png" type="image/png">
+</head>
+<body>
+    <div class="container">
+        <input type="text" placeholder="Buscar...">
+        <button><i class="fa-solid fa-magnifying-glass"></i></button>
+    </div>
+    <div class="titulo">
+        <h1>ELODIC NEWS</h1>
+    </div>
+    <div class="sec-1">
+        <img src="notaa.png" width="170px" alt="">
+    </div>
+    <div class="piano">
+        <div class="piano-header">
+            <div></div>
+        </div>
+        <div class="keys">
+            <div class="key white" onclick=
+            "document.getElementById('si').play();"></div>
+            <div class="key black" onclick=
+            "document.getElementById('la#').play();"></div>
+                    <a href="noticias.html" 
+                    class="key white1" 
+                    onclick="document.getElementById('la')
+                    .play(); return true;">noticias</a>
+            <div class="key black" onclick=
+            "document.getElementById('sol#').play();"></div>
+            <div class="key white" onclick=
+            "document.getElementById('sol').play();"></div>
+            <div class="key black" onclick=
+            "document.getElementById('fa#').play();"></div>
+                    <a href="clases.html" 
+                    class="key white2" 
+                    onclick="document.getElementById('fa')
+                    .play(); return true;">clases</a>
+            <div class="key white" onclick=
+            "document.getElementById('mi').play();"></div>
+            <div class="key black" onclick=
+            "document.getElementById('re#').play();"></div>
+            <a href="Melodicnews.html"
+            class="key white30" 
+            onclick="startSound();">podcast</a>
+            <div class="key black" onclick=
+            "document.getElementById('do#').play();"></div>
+            <div class="key white" onclick=
+            "document.getElementById('do').play();"></div>
+        </div>
+        <audio id="si" src="notas/j.mp3" controls></audio>
+        <audio id="la#" src="notas/u.mp3"></audio>
+        <audio id="la" src="notas/h.mp3" controls></audio>
+        <audio id="sol#" src="notas/y.mp3"></audio>
+        <audio id="sol" src="notas/g.mp3"></audio>
+        <audio id="fa#" src="notas/t.mp3"></audio>
+        <audio id="fa" src="notas/f.mp3"></audio>
+        <audio id="mi" src="notas/d.mp3"></audio>
+        <audio id="re#" src="notas/e.mp3"></audio>
+        <audio id="re" src="notas/s.mp3"></audio>
+        <audio id="do#" src="notas/w.mp3"></audio>
+        <audio id="do" src="notas/a.mp3"></audio>
+    </div>
+</body>
+</html>
