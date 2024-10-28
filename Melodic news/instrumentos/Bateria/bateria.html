@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bateria Virtual | Melodic News</title>
+    <link rel="icon" href="imagenes/logo-icon.png" type="image/png">
+    <style>
+        @font-face{
+            font-family: lemontea;
+            src: url(../../LETRA2.ttf);
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #574a41; /* Color ocre claro */
+            font-family: monospace;
+            overflow-x: hidden; /* Evita el desplazamiento horizontal */
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background: linear-gradient(45deg, #b57c00, #d09306, #ecab0f, #f7d547, #ffff72);
+        }
+        .title {
+            color: #4e3300; /* Color ocre oscuro */
+            font-size: 24px;
+            margin-left: 20px;
+            font-family: lemontea;
+            text-shadow: 2px 2px #ffcc50;
+        }
+        .back-button {
+            background-color: #5B3A29; /* Color ocre oscuro */
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .back-button:hover {
+            background-color: #7C5B3A; /* Color ocre intermedio */
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+        }
+        .boxs {
+            position: relative;
+            margin: -50px;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .letters {
+            background: linear-gradient(45deg, #b57c00, #d09306, #ecab0f, #f7d547, #ffff72);
+            width: 60px;
+            height: 60px;
+            font-size: 30px;
+            font-weight: 600;
+            margin: 1%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            position: relative;
+        }
+        .inner {
+            background-color: #f9e557; /* Color ocre muy claro */
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .titles {
+            position: absolute; 
+            top: 59px; 
+            left: 5px; 
+            font-size: 15px;
+            color: #ffff72;
+        }
+        @media only screen and (max-width: 600px) {
+            .container img {
+                width: 450px;
+                height: 450px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <button onclick="history.back()" class="back-button">Volver</button>
+        <h1 class="title">Melodic News</h1>
+    </div>
+    
+    <div class="container">
+        <img src="imagenes/BG.jpg" alt="Background" width="600" height="600">
+    </div>
+
+    <div class="boxs">
+        <div class="letters" id="1" onclick="sound(this.id)">        
+            <div class="titles">Bombo</div>
+            <div class="inner">A</div>
+        </div>
+        <div class="letters" id="2" onclick="sound(this.id)">        
+            <div class="titles">Tom de piso</div>
+            <div class="inner">S</div>
+        </div>
+        <div class="letters" id="3" onclick="sound(this.id)">        
+            <div class="titles">Tom 1</div>
+            <div class="inner">D</div>
+        </div>
+        <div class="letters" id="4" onclick="sound(this.id)">       
+            <div class="titles">Tom 2</div>
+            <div class="inner">F</div>
+        </div>
+        <div class="letters" id="5" onclick="sound(this.id)">
+            <div class="titles">Tarola</div>
+            <div class="inner">G</div>
+        </div>
+        <div class="letters" id="6" onclick="sound(this.id)">
+            <div class="titles">Tarola-borde</div>
+            <div class="inner">H</div>
+        </div>
+        <div class="letters" id="7" onclick="sound(this.id)">      
+            <div class="titles">Ride</div>
+            <div class="inner">J</div>
+        </div>
+        <div class="letters" id="8" onclick="sound(this.id)">
+            <div class="titles">Hi-Hat</div>
+            <div class="inner">K</div>
+        </div>
+        <div class="letters" id="9" onclick="sound(this.id)">
+            <div class="titles">Hi-Hat abierto</div>
+            <div class="inner">L</div>
+        </div>
+        <div class="letters" id="10" onclick="sound(this.id)">   
+            <div class="titles">Crash</div>
+            <div class="inner">Ñ</div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("keydown", function(e) {
+            const keys = ["A", "S", "D", "F", "G", "H", "J", "K", "L", "Ñ"];
+            const keyIndex = keys.indexOf(e.key.toUpperCase());
+            if (keyIndex !== -1) {
+                sound(keyIndex + 1);
+            }
+        });
+        
+        function sound(id) {
+            const audio = document.createElement("audio");
+            audio.setAttribute("autoplay", "true");
+            const sounds = [
+                "sonidos/A_bombo.mp3",
+                "sonidos/S_tom-piso.mp3",
+                "sonidos/D_tom1.mp3",
+                "sonidos/F_tom2.mp3",
+                "sonidos/G_tarola.mp3",
+                "sonidos/H_tarola-borde.mp3",
+                "sonidos/J_ride.mp3",
+                "sonidos/K_hihat.mp3",
+                "sonidos/L_hihat-abierto.mp3",
+                "sonidos/Z_crash.mp3"
+            ];
+            audio.setAttribute("src", sounds[id - 1]);
+            document.getElementById(id).appendChild(audio);
+            const letterDiv = document.getElementById(id);
+            letterDiv.style.fontSize = "50px";
+            setTimeout(() => {
+                letterDiv.style.fontSize = "30px";
+            }, 100);
+        }
+    </script>
+</body>
+</html>
