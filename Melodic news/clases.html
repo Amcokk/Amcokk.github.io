@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio | Melodic News</title>
+    <title>Clases | Melodic News</title>
     <link rel="icon" href="imagenes/logo-icon.png" type="image/png">    
     <style>
         @font-face {
@@ -15,6 +15,7 @@
             font-size: 16px;
             font-family: lemontea;
             margin: 0;
+            overflow-x: hidden; 
             padding: 0;
         }
 
@@ -38,7 +39,7 @@
         cursor: pointer;
         gap: 0px;
         justify-content:initial;
-        margin: -240px 0px;
+        margin: -140px 0px;
         }
         .white{
         background: linear-gradient( rgb(255,255,255) 97%, rgb(202, 196, 196) 3%);
@@ -65,7 +66,7 @@
 .black{
     position:relative;
     z-index: 2;
-    margin: -20px;
+    margin: -20px 0px;
     background: linear-gradient(rgb(30, 30, 30) 35%, rgb(0, 0, 0));
     width: 90px;
     height: 30px;
@@ -236,14 +237,6 @@ a.key {
     transform: scale(1.09);
     position: static;
     }
-
-        /* Main content */
-        .main-content {
-            flex: 1; /* Para que ocupe todo el espacio disponible */
-            padding: 20px;
-            background-color: #fff;
-            margin-left: 20px; /* Añadir espacio entre el piano y el contenido */
-        }
     .navbar {
             background: linear-gradient(45deg, #b57c00, #d09306, #ecab0f, #f7d547, #ffff72);
             padding: 10px 0;
@@ -338,34 +331,49 @@ a.key {
     width: 90px;
     margin-top: -20px;
 }
-.container {
-            display: flex; /* Coloca los elementos uno al lado del otro */
-            justify-content:center; /* Centra los elementos */
-            flex-wrap: wrap; /* Permite que los elementos se muevan a la siguiente línea */
-            margin: 20px 0; /* Espacio entre el header y los instrumentos */
-            position: relative;
+        .container {
+            position:relative;
             z-index: 10;
+        }
+        .main-content {
+            flex: 1;
+            padding: 20px;
+            background-color: #fff;
+            margin-left: 400px; 
+            width: 100px;
+            height: 100px;
+            flex-direction: column;
+            align-items: center;
         }
 
         .instrument {
             border: 1px solid #ddd;
             border-radius: 10px;
-            width: calc(10% - 20px); /* Ajuste para tres elementos */
-            padding: 10px; /* Ajustado para que sea más pequeño */
+            width: calc(25% - 20px);
+            padding: 15px;
             margin: 10px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
             transition: transform 0.2s;
             cursor: pointer;
-            text-align: center; /* Centra el texto dentro del instrumento */
         }
-
         .instrument:hover {
             transform: scale(1.05);
             opacity: 0.9;
         }
-
         .instrument img {
-            width: 60px; /* Ajustado para que sea más pequeño */
+            width: 80px;
             height: auto;
+        }
+        a {
+            text-decoration: none;
+            color: #007BFF;
+            font-size: small;
+        }
+        .row {
+            display: flex;
+            justify-content: center;
+            margin: 10px 0;
+            width: 100%;
         }
     </style>
 </head>
@@ -383,25 +391,28 @@ a.key {
     <header>
         <h1 style="color: #4e3300; font-size: 3em; text-shadow: 2px 2px #ffcc50;">MELODIC NEWS</h1>
     </header>
-    <div class="container">
-        <div class="instrument" onclick="window.location='instrumentos/guitarra/basico.html'">
-            <img src="imagenes/basico.png" alt="Nivel Básico">
-            <h2>Básico</h2>
-            <a href="nivel-basico.html">Ver más sobre Básico</a>
-        </div>
-        <div class="instrument" onclick="window.location='instrumentos/guitarra/intermedio.html'">
-            <img src="imagenes/intermedio.png" alt="Nivel Intermedio">
-            <h2>Intermedio</h2>
-            <a href="instrumentos/guitarra/intermedio.html">Ver más sobre Intermedio</a>
-        </div>
-        <div class="instrument" onclick="window.location='instrumentos/guitarra/avanzado.html'">
-            <img src="imagenes/avanzado.png" alt="Nivel Avanzado">
-            <h2>Avanzado</h2>
-            <a href="instrumentos/guitarra/avanzado.html">Ver más sobre Avanzado</a>
-        </div>
-    </div>
-</div>
-</div>
+<div class="container">
+        <div class="main-content">
+            <div class="row">
+                <div class="instrument" onclick="window.location='instrumentos/guitarra/clases/nivel-basico.html'" style="cursor: pointer;">
+                    <img src="imagenes/basico.png" alt="Nivel Básico">
+                    <h2>Básico</h2>
+                    <a href="nivel-basico.html">Ver más sobre Básico</a>
+                </div>
+                <div class="instrument" onclick="window.location='instrumentos/guitarra/clases/intermedio.html'" style="cursor: pointer;">
+                    <img src="imagenes/intermedio.png" alt="Nivel Intermedio">
+                    <h2>Intermedio</h2>
+                    <a href="instrumentos/guitarra/intermedio.html">Ver más sobre Intermedio</a>
+                </div>
+            </div>
+            <div class="row">
+            <div class="instrument" onclick="window.location='instrumentos/guitarra/avanzado.html'" style="cursor: pointer;">
+                <img src="imagenes/avanzado.png" alt="Nivel Avanzado">
+                <h2>Avanzado</h2>
+                <a href="instrumentos/guitarra/avanzado.html">Ver más sobre Avanzado</a>
+            </div>
+            </div> 
+        </div>          
         <div class="piano">
             <div class="piano-header">
                 <div></div>
@@ -432,6 +443,7 @@ a.key {
             <audio id="re" src="notas/s.mp3"></audio>
             <audio id="do#" src="notas/w.mp3"></audio>
             <audio id="do" src="notas/a.mp3"></audio>
+        </div>
         </div>
     <nav class="navbar">
         <ul class="nav-menu">
