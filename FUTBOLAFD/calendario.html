@@ -85,7 +85,7 @@
     nav a:hover {
         color: rgb(177, 175, 175);
     }
-    button {
+    .menu-button {
         font-size: 25px;
         font-family: new;
         border-radius: 20px;
@@ -93,16 +93,113 @@
         color: white;
         border: none;
         cursor: pointer;
-        margin-left: 20px;
-        margin-top: -400px; /* Ajuste de margen para pegar el botón al texto */
+        width: 350px;
+        height: 60px;
+        position: absolute;
+        top: 190px; /* Ajusta este valor según la posición deseada */
+        left: 20px; /* Ajusta este valor si es necesario */
     }
-    p{
-        font-size: 60px; 
+    p {
+        font-size: 80px; 
         font-family: welcome; 
         color: #045694; 
-        margin-top: 20px; 
+        margin-top: 0px; 
         margin-left: 20px;
-        padding: -70px;
+        padding: -10px;
+    }
+    .menu {
+        display: none;
+        position: absolute;
+        background: linear-gradient(90deg, #045694, #1d679f, #3678a9, #4f89b4, #689abf);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+        width: 350px;
+        height: 400px;
+        position: absolute;
+        top: 232px; /* Ajusta este valor según la posición deseada */
+        left: 20px; /* Ajusta este valor si es necesario */
+        border-radius: 0px 0px 20px 20px;
+    }
+    .menu a {
+        color: white;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        text-align: left;
+    }
+    .menu a:hover {
+        background: linear-gradient(360deg, #045694, #1d679f, #3678a9, #4f89b4, #689abf);
+        color: #e6eef4;
+    }
+    .league {
+        cursor: pointer;
+        padding: 15px;
+        font-size: 20px;
+        color: #ffffff;
+        border-bottom: 1px solid #5a80a0;
+        border-radius: 5px;
+        transition: background-color 0.3s, transform 0.3s;
+        text-align: center;
+        font-family: new;
+        letter-spacing: -1px;
+    }
+    .league:hover {
+        background: linear-gradient(360deg, #045694, #1d679f, #3678a9, #4f89b4, #689abf);
+        transform: scale(1.05);
+    }
+    .active-league {
+        background: linear-gradient(360deg, #045694, #1d679f, #3678a9, #4f89b4, #689abf);
+        font-weight: bold;
+    }
+    .results-container {
+        display: none;
+        padding: 20px;
+        background-color: white;
+        border-radius: 5px;
+        margin-left: 400px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        overflow-y: auto; /* Asegura que el contenido extra quede desplazable */
+        max-height: 800px; /* Limita la altura del contenido para evitar desbordamiento */
+        width: 700px;
+        margin-top: -80px;
+    }
+    .container {
+        max-width: 790spx;
+        width: 100%;
+        text-align: center;
+    }
+    .title {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+    .match {
+        background-color: white;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        margin-bottom: 20px;
+        padding: 10px;
+    }
+    .teams {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .team {
+        display: flex;
+        align-items: left;
+    }
+    .team img {
+        width: 50px;
+        height: 50px;
+        margin-right: 5px;
+        margin-top: 30px;
+        padding: 1px;
+    }
+    .score {
+        font-size: 32px;
+        font-weight: bold;
+        margin-left: -20px;
     }
 </style>
 <body>
@@ -120,9 +217,65 @@
             <a href="equipos.html">EQUIPOS</a>
         </nav>
     </header>
-    <div class="container">
     <p>CALENDARIO</p>
-    <button>SELECCIONAR LIGA ▼</button>
-</div>
+    <div class="ligas">
+        <button class="menu-button" onclick="toggleMenu()">SELECCIONAR LIGA ▼</button>
+        <div class="menu" id="dropdownMenu">
+            <div class="league" onclick="showResults(event, 'espanola')">LIGA ESPAÑOLA</div>
+            <div class="league" onclick="showResults(event, 'francesa')">LIGA FRANCESA</div>
+            <div class="league" onclick="showResults(event, 'colombiana')">LIGA COLOMBIANA</div>
+            <div class="league" onclick="showResults(event, 'alemana')">LIGA ALEMANA</div>
+            <div class="league" onclick="showResults(event, 'inglesa')">LIGA INGLESA</div>
+            <div class="league" onclick="showResults(event, 'italiana')">LIGA ITALIANA</div>
+        </div>
+    </div>
+    <div id="espanola" class="results-container">
+        <div class="container">
+            <div class="title">CALENDARIO | LIGA ESPAÑOLA</div>
+            <div class="match">
+                <div class="teams">
+                    <div class="team">
+                        <img src="resultados images/barca.png" alt="Barcelona">
+                        <span>BARCELONA</span>
+                    </div>
+                    <div class="score">3 - 1</div>
+                    <div class="team">
+                        <span>ESPANYOL</span>
+                        <img src="resultados images/espanyol.svg" alt="Espanyol">
+                    </div>
+                </div>
+                <div class="info">
+                    03/11/2024 FIN 
+                </div>
+            </div>
 </body>
+<script>
+    function toggleMenu() {
+        var menu = document.getElementById("dropdownMenu");
+        if (menu.style.display === "block") {
+            menu.style.display = "none";
+        } else {
+            menu.style.display = "block";
+        }
+    }
+        function showResults(event, leagueId) {
+            // Oculta todos los contenedores de resultados
+            const resultContainers = document.querySelectorAll('.results-container');
+            resultContainers.forEach(container => {
+                container.style.display = 'none';
+            });
+
+            // Elimina la clase 'active-league' de todas las ligas
+            const leagues = document.querySelectorAll('.league');
+            leagues.forEach(league => {
+                league.classList.remove('active-league');
+            });
+
+            // Muestra el contenedor de resultados de la liga seleccionada
+            document.getElementById(leagueId).style.display = 'block';
+
+            // Añade la clase 'active-league' a la liga seleccionada
+            event.currentTarget.classList.add('active-league');
+        }
+</script>
 </html>
