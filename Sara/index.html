@@ -4,19 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>♡♡♡ Mi niña linda ♡♡♡</title>
-</head>
-<body>
-    <div class="contenedor">
-        <div class="cuerpo"></div>
-        <div class="triangulo"></div>
-    </div>
-</body>
-<style>
+    <style>
+        /* Estilo general para escritorio */
         .contenedor {
             width: 80%;
             margin: auto;
             padding: 2em;
             background-color: #f4f4f4;
+        }
+
+        .cuerpo {
+            margin-top: 160px;
+            margin-left: 170px;
+            width: 800px;
+            height: 450px;
+            background-color: rgb(238, 212, 162); /* Color del sobre */
+            border: 2px solid black;
+        }
+
+        .triangulo {
+            width: 0;
+            height: 0;
+            border-left: 50px solid transparent;
+            border-right: 50px solid transparent;
+            border-bottom: 100px solid blue; /* Color de la solapa */
+            transform: rotate(63deg);
+            margin-top: -480px;
+            margin-left: 600px;
         }
 
         /* Ajustes para tabletas y dispositivos de tamaño mediano */
@@ -36,32 +50,63 @@
             body {
                 font-size: 12px;
                 background: rgb(131, 2, 2);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                margin: 0;
             }
 
             .contenedor {
                 width: 100%;
                 padding: 0.5em;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
             }
 
-    .cuerpo{
-        margin-top: 160px;
-        margin-left: 170px;
-        width: 800px;
-        height: 450px;
-        background-color: rgb(238, 212, 162);
-        border: 2px solid black;
-    }
-    .triangulo {
-            width: 0;
-            height: 0;
-            border-left: 50px solid transparent;
-            border-right: 50px solid transparent;
-            border-bottom: 100px solid blue; /* Color del triángulo */
-            transform: rotate(63deg);
-            margin-top: -480px;
-            margin-left: 600px
-        }
-        }
+            .cuerpo {
+                width: 180px;
+                height: 120px;
+                background-color: rgb(238, 212, 162); /* Color del sobre */
+                position: relative;
+                border: 2px solid black;
+            }
 
-</style>
+            .triangulo {
+                width: 0;
+                height: 0;
+                border-left: 90px solid transparent;
+                border-right: 90px solid transparent;
+                border-bottom: 70px solid rgb(238, 212, 162); /* Color de la solapa */
+                position: absolute;
+                top: -35px;
+                left: 0;
+            }
+
+            /* Estampa de corazón */
+            .corazon {
+                position: absolute;
+                top: 10px;
+                left: 75px;
+                width: 20px;
+                height: 20px;
+                background-color: red;
+                clip-path: polygon(50% 0%, 100% 35%, 82% 100%, 50% 75%, 18% 100%, 0% 35%);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="contenedor">
+        <!-- Sobre de carta -->
+        <div class="cuerpo"></div>
+        
+        <!-- Solapa del sobre -->
+        <div class="triangulo"></div>
+        
+        <!-- Estampa de corazón -->
+        <div class="corazon"></div>
+    </div>
+</body>
 </html>
