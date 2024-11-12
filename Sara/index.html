@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>♡♡♡ Mi niña linda ♡♡♡</title>
+</head>
+<body>
+    <div class="contenedor">
+        <div class="cuerpo"></div>
+        <div class="triangulo"></div>
+    </div>
+</body>
+<style>
+    body{
+        background: rgb(131, 2, 2);
+    }
+    .cuerpo{
+        margin-top: 160px;
+        margin-left: 170px;
+        width: 800px;
+        height: 450px;
+        background-color: rgb(238, 212, 162);
+        border: 2px solid black;
+    }
+    .triangulo {
+            width: 0;
+            height: 0;
+            border-left: 50px solid transparent;
+            border-right: 50px solid transparent;
+            border-bottom: 100px solid blue; /* Color del triángulo */
+            transform: rotate(63deg);
+            margin-top: -480px;
+            margin-left: 600px
+        }
+        .contenedor {
+            width: 80%;
+            margin: auto;
+            padding: 2em;
+            background-color: #f4f4f4;
+        }
+
+        /* Ajustes para tabletas y dispositivos de tamaño mediano */
+        @media (max-width: 768px) {
+            body {
+                font-size: 14px;
+            }
+
+            .contenedor {
+                width: 95%;
+                padding: 1em;
+            }
+        }
+
+        /* Ajustes para móviles */
+        @media (max-width: 480px) {
+            body {
+                font-size: 12px;
+            }
+
+            .contenedor {
+                width: 100%;
+                padding: 0.5em;
+            }
+        }
+
+</style>
+</html>
