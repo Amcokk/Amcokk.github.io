@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carta a Sara. </title>
+    <link rel="stylesheet" href="style.css">
+</head>
+    <style>
+        @font-face{
+            font-family: love;
+            src: url(Love.ttf);
+        }
+        @font-face{
+            font-family: lof;
+            src: url(SURGACINTA.otf);
+        }
+        @font-face {
+            font-family: cursiva;
+            src: url(cursiva.otf);
+        }
+        /* Estilo general para escritorio */
+
+        body {
+            margin: 0;
+            height: 100vh;
+            background: linear-gradient(90deg, #f5d0df, #ffbcca, #d091a0, #a16675, #723b4b, #431020);
+            background-size: 300% 300%;
+            animation: gradientAnimation 10s infinite;
+        } 
+        body::before {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            color: rgba(255, 255, 255, 0.2);
+            font-size: 5rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            grid-auto-rows: 150px;
+            align-items: center;
+            justify-items: center;
+            pointer-events: none;
+            white-space: nowrap;
+        }     
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }  
+        .carta{
+            background: linear-gradient(180deg, rgb(241, 221, 182), rgb(241, 212, 159), 
+            rgb(231, 198, 137),rgb(241, 212, 159), rgb(241, 221, 182)); /* Degradado atractivo */
+            width: 900px;  /* Ancho */
+            height: 700px; /* Alto */
+            margin-left: 110px;
+            border-radius: 20px;
+        }
+
+        /* Ajustes para tabletas y dispositivos de tamaño mediano */
+        @media (max-width: 768px) {
+            body {
+                font-size: 14px;
+            }
+
+            .contenedor {
+                width: 95%;
+                padding: 1em;
+            }
+        }
+
+        /* Ajustes para móviles */
+        @media (max-width: 480px) {
+            body {
+                font-size: 12px;
+                background: rgb(131, 2, 2);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                margin: 0;
+            }
+
+            .contenedor {
+                width: 100%;
+                padding: 0.5em;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .cuerpo {
+                width: 180px;
+                height: 120px;
+                background-color: rgb(238, 212, 162); /* Color del sobre */
+                position: relative;
+                border: 2px solid black;
+            }
+
+            .triangulo {
+                width: 0;
+                height: 0;
+                border-left: 90px solid transparent;
+                border-right: 90px solid transparent;
+                border-bottom: 70px solid rgb(238, 212, 162); /* Color de la solapa */
+                position: absolute;
+                top: -35px;
+                left: 0;
+            }
+
+            /* Estampa de corazón */
+            .corazon {
+                position: absolute;
+                top: 10px;
+                left: 75px;
+                width: 20px;
+                height: 20px;
+                background-color: red;
+                clip-path: polygon(50% 0%, 100% 35%, 82% 100%, 50% 75%, 18% 100%, 0% 35%);
+            }
+        }
+        * {
+  min-width: 0;
+  font: inherit;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+img,
+video,
+svg {
+  display: block;
+  height: auto;
+  max-width: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+}
+
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+/* styles */
+/* TODO: Cambiar la fuente
+
+* {
+  font-family: comic-sans;
+} */
+
+body {
+  background-color: #fad7df;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+
+  gap: 3rem;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container-letter {
+  position: relative;
+  margin-top: -300px;
+}
+
+.cover {
+  position: absolute;
+  border-left: 200px solid transparent;
+  border-right: 200px solid transparent;
+  border-top: 100px solid #fe3334;
+  border-bottom: 100px solid transparent;
+
+  /*  */
+  transition: transform .75s;
+  transform-origin: top;
+}
+
+.paper {
+  position: absolute;
+  padding: 1.5rem;
+  line-height: 2rem;
+  right: 5px;
+  z-index: 2; /* Aseguramos que esté por encima del sobre */
+  background: white;
+  width: 390px;
+  height: 953px;
+  font-family: cursiva;
+  transition: all .75s;
+  top: 170px; /* Inicialmente dentro del sobre */
+  opacity: 0; /* Ocultar inicialmente */
+}
+
+.letter {
+  border-left: 200px solid #ff989e;
+  border-right: 200px solid #ff989e;
+  border-top: 100px solid transparent;
+  border-bottom: 100px solid #ff858a;
+}
+
+.options {
+  display: flex;
+  justify-content: space-between; /* Coloca los botones uno al extremo izquierdo y otro al derecho */
+        width: 100%; /* Asegura que ocupe todo el ancho del contenedor */
+        padding: 0 2rem; /* Agrega un poco de espacio interno */
+        position: ABSOLUTE; /* Mantiene los botones dentro de su contenedor */
+        z-index: 1; /* Asegura que estén por debajo de la carta */
+        margin-top: -200px;
+        top: 50%; /* Coloca los botones centrados verticalmente respecto a la carta */
+        transform: translateY(-50%); /* Centrado perfecto en el eje vertical */
+    
+
+
+  & button {
+    color: #ff3234;
+    font-weight: 600;
+    border-radius: 3px;
+    background: #fad7df;
+    padding: 0.5rem 1rem;
+    border: 1px solid #fe3334;
+    cursor: pointer;
+    width: 140px; /* Ajusta el tamaño de los botones */
+  }
+
+  & button:hover {
+    background: #ff989e;
+    color: white;
+  }
+}
+.open-paper {
+  top: -120px; /* Desplazar hacia afuera al abrir */
+  opacity: 1; /* Hacer visible */
+}
+
+.close-paper {
+  top: 100px; /* Volver a la posición inicial */
+  opacity: 0; /* Ocultar */
+}
+.open-cover {
+  transform: rotatex(180deg);
+}
+
+.open-paper {
+  animation: openPaper .5s forwards;
+}
+
+@keyframes openPaper {
+  0% {
+    top: 0;
+  }
+  100% {
+    top: -120px;
+  }
+}
+
+.close-paper {
+  animation: closePaper .5s forwards;
+}
+
+@keyframes closePaper {
+  0% {
+    top: -120px;
+  }
+  100% {
+    top: 0;
+  }
+}
+
+
+.heart {
+  display: none;
+  position: absolute;
+  top: 25%;
+  left: 46.5%;
+  margin: auto;
+  font-size: 3rem;
+
+  color: #fe3334;
+
+  animation: crecer 1s forwards ;
+}
+
+@keyframes crecer {
+  0% {
+    scale: 1;
+    opacity: 1;
+  }
+  100% {
+    scale: 3;
+    opacity: 0;
+
+  }
+}
+
+    </style>
+</head>
+<body> 
+  <button onclick="window.history.back()" style="position: absolute; top: 10px; left: 30px; padding: 10px; background-color: #ff989e; color: white; border: none; border-radius: 5px; cursor: pointer;">Volver</button>
+    <main>
+        <div class="container-letter">
+          <div class="cover"></div>
+          <span class="heart">♥</span>
+
+        <p class="paper" id="mainMessage">
+            Querida Sarita, me dijiste que escribiera algo memorable así que aquí está, mi recuerdo de la primera vez que te vi, o como te gusta llamarlo nuestro "bello click", fue en inicios del año 2024, te vi desde el piso donde está mi salón, estabas sentada en el patio con tu amiga, un amigo hablaba de como le gustaba esa niña (tu amiga), pero mis ojos no iban dirijidos hacía ella, yo te miraba a ti, desde ese momento vi una niña tan bonita, en ningun momento me imagine que llegaria a tener algo tan lindo contigo, recuerdo, estabas en uniforme con tu cabello metido entre el saco, como siempre te ha gustado tenerlo KAJSK, ustedes habían bajado supongo a hacer un trabajo, estaban con el modulo, cuando me llamaron al salón, todo el día estuve pensando en tí, y nada más que en ti, quise hablarte, porque desde ese momento, esos 37 minutos que estuve por fuera del salón mirandote, desde ese momento se ilumino mi vida y quede completamente enamorado de tí, desde entonces eres mi adoración, la cosita que más amo en este mundo, la muñeca más bonita que la vida me ha podido regalar, la niña de mis ojos, 7 meses llevamos y quiero durar toda la vida contigo, no me bastaría esta vida
+            ni ninguna para amarte, pienso en lo afortunado que fuí en que ninguna otra persona se fijara primero en tí, te dejaron sola para mi, y soy tan feliz, quiero hacer lo necesario para que esto funcione, eso se hace cuando amas tanto a alguien, quiero verte llegar con el vestido blanco que he soñado toda mi vida. No me gustan las princesas, pero eres mi favorita. 
+        <br>      
+            -Felipe.
+          </p>
+          <div class="letter"></div>
+        </div>
+        <div class="options">
+          <button id="open">Abrelo</button>
+          <button id="close">Cierralo</butto>
+        </div>
+
+      </main>
+      <script>
+        // read custom message from query strings
+// Tutorial -> https://youtu.be/6ojp1iWUKw8
+
+const urlSearchParams = new URLSearchParams(window.location.search)
+
+const messageCustom = urlSearchParams.get('message')
+
+if (messageCustom) {
+
+  const mainMessageElement = document.querySelector('#mainMessage')
+  mainMessageElement.textContent = decodeURI(messageCustom)
+}
+
+// the tutorial starts here
+
+const btnOpenElement = document.querySelector('#open')
+const btnCloseElement = document.querySelector('#close')
+
+btnCloseElement.disabled = true
+
+
+
+btnOpenElement.addEventListener('click', ()=> {
+  btnOpenElement.disabled = true
+  btnCloseElement.disabled = false
+  const coverElement = document.querySelector('.cover')
+  coverElement.classList.add('open-cover')
+
+  setTimeout(()=>{
+    //
+    coverElement.style.zIndex = -1
+    
+    const paperElement = document.querySelector('.paper')
+    paperElement.classList.remove('close-paper')
+    paperElement.classList.add('open-paper')
+
+    // animacion del corazón
+    const heartElement = document.querySelector('.heart')
+    heartElement.style.display = 'block'
+  
+  }, 500)
+
+})
+btnCloseElement.addEventListener('click', ()=> {
+  btnOpenElement.disabled = false
+  btnCloseElement.disabled = true
+
+  const coverElement = document.querySelector('.cover')
+  const paperElement = document.querySelector('.paper')
+  paperElement.classList.remove('open-paper')
+  paperElement.classList.add('close-paper')
+  
+  setTimeout(()=>{
+    coverElement.style.zIndex = 0
+    coverElement.classList.remove('open-cover')
+
+    // animacion del corazón
+    const heartElement = document.querySelector('.heart')
+    heartElement.style.display = 'none'
+  },500)
+})
+      </script>
+</body>
+</html> 
